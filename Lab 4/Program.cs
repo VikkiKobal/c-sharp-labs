@@ -9,21 +9,17 @@ namespace Lab_4
     {
         static void Main(string[] args)
         {
-            string filePath = @"C:\path\to\your\Vstup.json";
+            string filePath = @"D:\.net labs\vstup.json";
 
-            // Створюємо JSON файл з початковими даними
             CreateJsonFile(filePath);
 
-            // Виведення файлу на консолі
             Console.WriteLine("Вміст файлу Vstup.json:");
             DisplayJsonFile(filePath);
 
-            // Запит прізвища для пошуку
             Console.Write("Введіть прізвище для пошуку: ");
             string surname = Console.ReadLine();
             DisplayEntrantBySurname(filePath, surname);
 
-            // Запит для фільтру за роком та балами
             Console.Write("Введіть рік закінчення школи (X): ");
             int year = Convert.ToInt32(Console.ReadLine());
 
@@ -35,7 +31,6 @@ namespace Lab_4
             Console.ReadKey();
         }
 
-        // Метод для створення початкового JSON файлу
         static void CreateJsonFile(string filePath)
         {
             var entrants = new List<Entrant>
@@ -49,14 +44,12 @@ namespace Lab_4
             File.WriteAllText(filePath, json);
         }
 
-        // Метод для перегляду JSON файлу на консолі
         static void DisplayJsonFile(string filePath)
         {
             string jsonContent = File.ReadAllText(filePath);
             Console.WriteLine(jsonContent);
         }
 
-        // Метод для пошуку абітурієнта за прізвищем
         static void DisplayEntrantBySurname(string filePath, string surname)
         {
             string jsonContent = File.ReadAllText(filePath);
@@ -77,7 +70,6 @@ namespace Lab_4
             }
         }
 
-        // Метод для підрахунку абітурієнтів за роком закінчення школи та балами
         static void CountEntrantsByYearAndScore(string filePath, int year, int minScore)
         {
             string jsonContent = File.ReadAllText(filePath);
