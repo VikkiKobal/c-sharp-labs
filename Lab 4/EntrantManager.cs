@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 
 namespace Lab_4
@@ -40,7 +42,7 @@ namespace Lab_4
 
         public void CountEntrantsByYearAndScore(int year, int minScore)
         {
-            int count = entrants.FindAll(e => e.YearOfGraduation == year && e.EntranceScore >= minScore).Count;
+            int count = entrants.Count(e => e.YearOfGraduation == year && e.EntranceScore >= minScore);
             Console.WriteLine($"\nКількість абітурієнтів, які закінчили школу в {year} і набрали не менше {minScore} балів: {count}");
         }
     }
