@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 namespace Lab_3
 {
@@ -8,18 +8,21 @@ namespace Lab_3
         {
             string xmlFile = @"D:\.net labs\vstup.xml";
 
-            StudentHandler.CreateXmlFile(xmlFile);
-            StudentHandler.DisplayAllStudents(xmlFile);
+            List<Student> students = new List<Student>
+            {
+                new Student("1", "Петренко", "Чоловік", 2020, 180),
+                new Student("2", "Мельничук", "Жінка", 2021, 195)
+            };
 
-            Console.WriteLine("Введіть прізвище для пошуку:");
-            string surnameToFind = Console.ReadLine();
-            StudentHandler.DisplayStudentBySurname(xmlFile, surnameToFind);
+            XmlHandler.CreateXmlFile(xmlFile, students);
 
-            Console.WriteLine("Введіть рік закінчення школи:");
-            int year = int.Parse(Console.ReadLine());
-            Console.WriteLine("Введіть мінімальний сумарний бал:");
-            int score = int.Parse(Console.ReadLine());
-            StudentHandler.DisplayStudentsByYearAndScore(xmlFile, year, score);
+            List<Student> loadedStudents = XmlHandler.ReadStudents(xmlFile);
+
+            StudentHandler.DisplayAllStudents(loadedStudents);
+
+            StudentHandler.DisplayStudentBySurname(loadedStudents, "Петренко");
+
+            StudentHandler.DisplayStudentsByYearAndScore(loadedStudents, 2020, 170);
         }
     }
 }
