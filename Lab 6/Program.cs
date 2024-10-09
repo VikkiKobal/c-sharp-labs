@@ -50,6 +50,6 @@ class Program
         }
 
         Console.WriteLine("Натисніть будь-яку клавішу для виходу...");
-        Console.ReadKey(); // Затримка до натискання клавіші
+        Console.ReadKey(); 
     }
 }
