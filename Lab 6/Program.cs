@@ -14,7 +14,7 @@ class Program
                 repository.PrintAllStudents();
 
                 Console.Write("Введіть прізвище студента: ");
-                string lastName = Console.ReadLine() ?? string.Empty; // Ensure lastName is not null
+                string lastName = Console.ReadLine() ?? string.Empty; 
                 var student = repository.GetByLastName(lastName);
 
                 if (student != null)
@@ -30,14 +30,14 @@ class Program
                 if (!int.TryParse(Console.ReadLine(), out int year) || year < 0)
                 {
                     Console.WriteLine("Невірний формат року.");
-                    return; // Exit if parsing fails
+                    return; 
                 }
 
                 Console.Write("Введіть мінімальний бал: ");
                 if (!int.TryParse(Console.ReadLine(), out int minScore) || minScore < 0)
                 {
                     Console.WriteLine("Невірний формат бала.");
-                    return; // Exit if parsing fails
+                    return; 
                 }
 
                 int count = repository.CountStudentsByGraduationYearAndScore(year, minScore);
