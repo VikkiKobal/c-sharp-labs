@@ -5,5 +5,3 @@
 Завдання 2: Зберегти дані таблиці у xml-файл
 
 
-![image](https://github.com/user-attachments/assets/bce03d83-eff3-491d-a5e0-ffddeeb9f5a4)
-
